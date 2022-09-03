@@ -4,5 +4,6 @@ COPY . /
 WORKDIR /src
 ENV FLASK_APP=app.py
 RUN pip install -r requirements.txt
+EXPOSE 8080
 ENTRYPOINT ["python3"]
 CMD ["app.py"]
