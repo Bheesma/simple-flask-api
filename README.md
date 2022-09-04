@@ -44,7 +44,7 @@ kubectl run flask-api --image=flask-api:1 --port=8081 --image-pull-policy=Never
 
 * Port-Forward to allow browsing from localhost [Reference 1](https://stackoverflow.com/a/72452035)
 ```
-kubectl port-forward pod/apitest-service 54080:8081
+kubectl port-forward pod/flask-api 54080:8081
 ```
 
 * Browse the following URLs: 
