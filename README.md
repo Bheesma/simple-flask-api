@@ -18,10 +18,10 @@ flask run
 
 * Build docker image and start the container
 ```
-docker build -t flaskapi:1 .
-docker run -p 8080:8080 -d flaskapi:1
+docker build -t flask-api:1 .
+docker run -p 8081:8081 -d flask-api:1
 ```
-* Browse http://localhost:8080
+* Browse http://localhost:8081
 
 ## Run the app from Kubernetes (minikube)
 
@@ -34,17 +34,17 @@ eval $(minikube docker-env)
 * Build the docker image
 
 ```
-docker build -t flaskapi:1 .
+docker build -t flask-api:1 .
 ```
 
 * Create pod (Ref: [ImagePullPolicy](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy)). Image is already available locally so we set it to 'Never'
 ```
-kubectl run apitest --image=flaskapi:1 --port=8080 --image-pull-policy=Never
+kubectl run flask-api --image=flask-api:1 --port=8081 --image-pull-policy=Never
 ```
 
 * Port-Forward to allow browsing from localhost [Reference 1](https://stackoverflow.com/a/72452035)
 ```
-kubectl port-forward pod/apitest-service 54080:8080
+kubectl port-forward pod/apitest-service 54080:8081
 ```
 
 * Browse the following URLs: 
